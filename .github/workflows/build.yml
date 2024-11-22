@@ -26,7 +26,7 @@ jobs:
       # 编译 tcping.c
       - name: Compile tcping
         run: |
-          gcc -o tcping tcping.c
+          gcc -o tcping tcping.c -lpthread
 
       # 测试编译结果
       - name: Test tcping
