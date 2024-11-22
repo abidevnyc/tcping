@@ -9,7 +9,7 @@
 #include <pthread.h>
 #include <time.h>
 
-// ... 其他头文件a 
+// ... 其他头文件
 
 #define BUFFER_SIZE 1024
 
