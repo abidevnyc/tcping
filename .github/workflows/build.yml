@@ -14,11 +14,6 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # 安装编译工具
-      - name: Install Dependencies
-        run: |
-          brew install gcc
-
       # 编译 tcping.c
       - name: Compile tcping
         run: |
