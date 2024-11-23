@@ -8,7 +8,7 @@ on:
 
 jobs:
   ubuntu-arm64-cross:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       # 检出代码
       - name: Checkout Code
@@ -19,6 +19,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y gcc-aarch64-linux-gnu build-essential
+          cat /etc/os-release
 
       # 使用交叉编译工具链编译为 ARM64
       - name: Compile for ARM64
