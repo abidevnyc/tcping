@@ -40,7 +40,6 @@ jobs:
         with:
           name: tcping-macos-arm64
           path: tcping-macos-arm64.dmg
-        with:
           name: tcping-macos-arm64
           path: tcping-macos-arm64.tar.gz
 
