@@ -53,7 +53,8 @@ void *tcping_thread(void *arg) {
 
         // 计算 RTT
         double rtt = (end.tv_sec - start.tv_sec) * 1000.0 + (end.tv_nsec - start.tv_nsec) / 1000000.0;
-        printf("Thread %ld - RTT to %s:%d = %.2f ms\n", pthread_self(), args->ip, args->port, rtt);
+        printf("Thread %lu - RTT to %s:%d = %.2f ms\n", (unsigned long)pthread_self(), args->ip, args->port, rtt);
+
 
         sleep(1); // 延时，避免过于频繁
     }
