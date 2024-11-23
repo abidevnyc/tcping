@@ -40,10 +40,7 @@ jobs:
         with:
           name: tcping-macos-arm64
           path: tcping-macos-arm64.dmg
-
-      # upload Artifact
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
         with:
           name: tcping-macos-arm64
           path: tcping-macos-arm64.tar.gz
+
