@@ -1,4 +1,4 @@
-name: Build and Test tcping
+name: Build and Test tcping for ARM64
 
 on:
   push:
@@ -7,20 +7,20 @@ on:
     branches: [main]
 
 jobs:
-  ubuntu-arm64:
-    runs-on: ubuntu-latest
+  ubuntu-arm64-native:
+    runs-on: self-hosted
     steps:
       # 检出代码
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # 安装依赖（确保 GCC 支持 ARM64 架构）
+      # 安装编译工具
       - name: Install Dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential
 
-      # 设置为 ARM64 架构并编译 tcping.c
+      # 编译为 ARM64 原生
       - name: Compile tcping
         run: |
           gcc -o tcping tcping.c -lpthread
