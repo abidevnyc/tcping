@@ -7,23 +7,23 @@ on:
     branches: [main]
 
 jobs:
-  ubuntu-arm64-native:
-    runs-on: self-hosted
+  ubuntu-arm64-cross:
+    runs-on: ubuntu-latest
     steps:
       # 检出代码
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # 安装编译工具
-      - name: Install Dependencies
+      # 安装交叉编译工具和 QEMU
+      - name: Install Cross-Compile Tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential
+          sudo apt-get install -y gcc-aarch64-linux-gnu build-essential
 
-      # 编译为 ARM64 原生
-      - name: Compile tcping
+      # 使用交叉编译工具链编译为 ARM64
+      - name: Compile for ARM64
         run: |
-          gcc -o tcping tcping.c -lpthread
+          aarch64-linux-gnu-gcc -o tcping tcping.c -lpthread
 
       # 打包编译生成的文件
       - name: Package Binary
