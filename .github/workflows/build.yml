@@ -17,7 +17,9 @@ jobs:
       # 编译 tcping.c
       - name: Compile tcping
         run: |
-          gcc -o tcping tcping.c -lpthread;echo "System Version: $(sw_vers -productVersion)";echo "Architecture: $(uname -m)"
+          gcc -o tcping tcping.c -lpthread
+          echo "System Version: $(sw_vers -productVersion)"
+          echo "Architecture: $(uname -m)"
 
 
       # 打包编译生成的文件
