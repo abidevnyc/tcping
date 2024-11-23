@@ -24,7 +24,8 @@ jobs:
       - name: Compile for ARM64
         run: |
           aarch64-linux-gnu-gcc -o tcping tcping.c -lpthread
-
+          cat /etc/os-release
+          
       # 打包编译生成的文件
       - name: Package Binary
         run: |
