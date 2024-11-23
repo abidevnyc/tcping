@@ -20,7 +20,6 @@ jobs:
       # 安装编译工具
       - name: Install Dependencies
         run: |
-          brew update
           brew install gcc
 
       # 编译 tcping.c
@@ -28,7 +27,14 @@ jobs:
         run: |
           gcc -o tcping tcping.c -lpthread
 
-      # 测试编译结果
-      - name: Test tcping
+      # 打包编译生成的文件
+      - name: Package Binary
         run: |
-          file tcping
+          tar -czvf tcping-macos-arm64.tar.gz tcping
+
+      # 上传 Artifact
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tcping-macos-arm64
+          path: tcping-macos-arm64.tar.gz
