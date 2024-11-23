@@ -8,7 +8,7 @@ on:
 
 jobs:
   macos-arm64:
-    runs-on: macos-18
+    runs-on: macos-12
     steps:
       # 检出代码
       - name: Checkout Code
