@@ -2,10 +2,7 @@ name: Build and Test tcping
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'tcping.c'
+    branches: [main]
   pull_request:
     branches: [main]
 
